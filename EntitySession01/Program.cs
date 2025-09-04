@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntitySession01.Context;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace EntitySession01
 {
@@ -45,6 +47,18 @@ namespace EntitySession01
              *          Limited Features
              *     
              */
+            #endregion
+            #region DbContext
+            //CompanyDbContext dbContext= new CompanyDbContext();
+            //try 
+            //{
+            //}
+            //finally { 
+            //    dbContext.Dispose();
+            //}
+            using CompanyDbContext dbContext = new CompanyDbContext();
+            //dbContext.Database.Migrate();
+
             #endregion
         }
     }
