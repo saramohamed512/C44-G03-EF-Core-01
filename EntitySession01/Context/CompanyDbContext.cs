@@ -20,6 +20,8 @@ namespace EntitySession01.Context
 
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<User> UsersTable { get; set; }
+
 
     }
 }
