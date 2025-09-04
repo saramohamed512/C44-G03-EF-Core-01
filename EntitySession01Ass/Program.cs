@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitySession01Ass.Context;
+using System;
 
 namespace EntitySession01Ass
 {
@@ -6,7 +7,7 @@ namespace EntitySession01Ass
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using ITIDbContext dbContext = new ITIDbContext();
         }
     }
 }
