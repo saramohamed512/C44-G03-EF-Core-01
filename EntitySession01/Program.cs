@@ -8,6 +8,7 @@ namespace EntitySession01
     {
         static void Main(string[] args)
         {
+            #region Session01
             #region Entity Framework Core
             /*
              * Features :-
@@ -56,8 +57,12 @@ namespace EntitySession01
             //finally { 
             //    dbContext.Dispose();
             //}
-            using CompanyDbContext dbContext = new CompanyDbContext();
+            //using CompanyDbContext dbContext = new CompanyDbContext();
             //dbContext.Database.Migrate();
+
+            #endregion
+            #endregion
+            #region Session02
 
             #endregion
         }
