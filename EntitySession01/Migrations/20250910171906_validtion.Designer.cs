@@ -3,6 +3,7 @@ using EntitySession01.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntitySession01.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    partial class CompanyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250910171906_validtion")]
+    partial class validtion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,21 +27,22 @@ namespace EntitySession01.Migrations
             modelBuilder.Entity("EntitySession01.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 10L, 10);
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("EmpName");
 
                     b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("EmpSalary");
 
                     b.HasKey("Id");
 

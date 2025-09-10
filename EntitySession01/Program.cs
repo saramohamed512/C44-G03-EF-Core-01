@@ -1,4 +1,5 @@
 ﻿using EntitySession01.Context;
+using EntitySession01.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -63,7 +64,30 @@ namespace EntitySession01
             #endregion
             #endregion
             #region Session02
+            #region Query Object Model [CRUD Operations]
+            using CompanyDbContext dbContext = new CompanyDbContext();
+            dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
+            dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
+            Employee emp01 = new Employee()
+            {
+                //Id = 1,
+                Name = "John Doe",
+                Salary = 5000,
+                Age = 24
+            };
+            Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            //Different Ways to Add Entity to Table in DB
+            //1st Way
+            dbContext.Employees.Add(emp01);
+            //2nd Way
+            dbContext.Set<Employee>().Add(emp01);
+            //3rd Way
+            dbContext.Add(emp01);
+            Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            //Save Changes
+            dbContext.SaveChanges();
+            #endregion
             #endregion
         }
     }
