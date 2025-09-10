@@ -21,6 +21,8 @@ namespace EntitySession01.ModelsConfigrations
                     .HasColumnType("varchar(50)")
                     .HasMaxLength(50)
                     .IsRequired(false);
+
+            builder.OwnsOne(E => E.EmpAdress, Adress => Adress.WithOwner());
         }
     }
    

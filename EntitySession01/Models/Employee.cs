@@ -21,5 +21,7 @@ namespace EntitySession01.Models
         //public Department ManagerDept { get; set; }=null!;
         //Nevigation Property
         public Department? ManagerDept { get; set; } = null!;
+
+        public Adress EmpAdress { get; set;  }= null!;
     }
 }

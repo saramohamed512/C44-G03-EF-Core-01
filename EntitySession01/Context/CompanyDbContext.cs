@@ -52,6 +52,12 @@ namespace EntitySession01.Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }
 
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Adress> Adresses { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+
 
     }
 }
