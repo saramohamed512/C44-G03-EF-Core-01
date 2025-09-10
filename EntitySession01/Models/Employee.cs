@@ -15,9 +15,11 @@ namespace EntitySession01.Models
         public int Age { get; set; }
 
         //Foreign Key
-        [ForeignKey("ManagerDept")]
-        public int ManagerDeptId { get; set; }
+        //[ForeignKey("ManagerDept")]
+        //public int ManagerDeptId { get; set; }
+        ////Nevigation Property
+        //public Department ManagerDept { get; set; }=null!;
         //Nevigation Property
-        public Department ManagerDept { get; set; }=null!;
+        public Department? ManagerDept { get; set; } = null!;
     }
 }

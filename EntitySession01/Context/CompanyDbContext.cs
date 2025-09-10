@@ -43,6 +43,11 @@ namespace EntitySession01.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<Employee>()
+                        .HasOne(e => e.ManagerDept)
+                        .WithOne(e => e.Manager)
+                        .HasForeignKey<Department>(d=>d.ManagerId);
+
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }

@@ -18,6 +18,8 @@ namespace EntitySession01.Models
         [Column(TypeName = "varchar(50)")]
         public string DeptName { get; set; }
 
+        public int ManagerId { get; set; }
+
         //Nevigation Property
         public Employee? Manager { get; set; } = null!;
     }
