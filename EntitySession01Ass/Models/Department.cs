@@ -14,5 +14,6 @@ namespace EntitySession01Ass.Models
         public string Name { get; set; }
         public int? Ins_ID { get; set; }
         public DateTime? HiringDate { get; set; }
+        public virtual Instructor Instructor { get; set; }
     }
 }

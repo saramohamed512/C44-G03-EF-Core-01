@@ -20,6 +20,20 @@ namespace EntitySession01Ass.Context
             optionsBuilder.UseSqlServer("Server = . ; Database = ITIDb; Trusted_Connection = true; TrustServerCertificate= true");
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Department>()
+            .HasOne(d => d.Instructor)
+            .WithOne(i => i.Department) 
+            .HasForeignKey<Department>(d => d.Ins_ID)
+            .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Instructor>()
+              .HasOne(i => i.Department)
+              .WithOne(d => d.Instructor) 
+              .HasForeignKey<Instructor>(i => i.Dept_ID)
+              .OnDelete(DeleteBehavior.NoAction);
+        }
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Department> Departments { get; set; }

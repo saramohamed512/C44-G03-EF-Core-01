@@ -28,5 +28,6 @@ namespace EntitySession01Ass.Models
         public decimal? Bouns { get; set; }
 
         public int? Dept_ID { get; set; }
+        public virtual Department Department { get; set; }
     }
 }
