@@ -153,6 +153,9 @@ namespace EntitySession01
             }
             #endregion
             #endregion
+            #region Relationships Between Classes
+
+            #endregion
             #endregion
         }
     }
