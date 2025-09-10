@@ -66,27 +66,92 @@ namespace EntitySession01
             #region Session02
             #region Query Object Model [CRUD Operations]
             using CompanyDbContext dbContext = new CompanyDbContext();
-            dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
-            dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
-            Employee emp01 = new Employee()
+            #region Add new record
+            //dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
+            //dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
+            //Employee emp01 = new Employee()
+            //{
+            //    //Id = 1,
+            //    Name = "John Doe",
+            //    Salary = 5000,
+            //    Age = 24
+            //};
+            //Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            ////Different Ways to Add Entity to Table in DB
+            ////1st Way
+            //dbContext.Employees.Add(emp01);
+            ////2nd Way
+            //dbContext.Set<Employee>().Add(emp01);
+            ////3rd Way
+            //dbContext.Add(emp01);
+            //Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            ////Save Changes
+            //dbContext.SaveChanges();
+            #endregion
+            #region Get Data from table - select
+            //var emp01 =dbContext.Employees.Where(E => E.Id == 1).FirstOrDefault();
+            //var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 1);
+
+            //if (emp01 != null)
+            //{
+            //    Console.WriteLine($"Id : {emp01.Id}");
+            //    Console.WriteLine($"Name : {emp01.Name}");
+            //    Console.WriteLine($"Salary : {emp01.Salary}");
+            //    Console.WriteLine($"Age : {emp01.Age}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
+            #endregion
+            #region Update Record
+            //var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 1);
+            //if (emp01 != null)
+            //{
+            //    Console.WriteLine($"Before Update : Name : {emp01.Name}");
+            //    emp01.Name = "Sara";
+            //    //Different Ways to Update Entity to Table in DB
+            //    //1st Way
+            //    dbContext.Employees.Update(emp01);
+            //    //2nd Way
+            //    //dbContext.Set<Employee>().Update(emp01);
+            //    //3rd Way
+            //    //dbContext.Update(emp01);
+            //    Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            //    dbContext.SaveChanges();
+            //    Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+
+            //    Console.WriteLine($"After Update : Name : {emp01.Name}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
+            #endregion
+            #region Delete record
+            var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 1);
+            if (emp01 != null)
             {
-                //Id = 1,
-                Name = "John Doe",
-                Salary = 5000,
-                Age = 24
-            };
-            Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
-            //Different Ways to Add Entity to Table in DB
-            //1st Way
-            dbContext.Employees.Add(emp01);
-            //2nd Way
-            dbContext.Set<Employee>().Add(emp01);
-            //3rd Way
-            dbContext.Add(emp01);
-            Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
-            //Save Changes
-            dbContext.SaveChanges();
+                Console.WriteLine($"Before Delete : Name : {emp01.Name}");
+                //Different Ways to Delete Entity to Table in DB
+                //1st Way
+                dbContext.Employees.Remove(emp01);
+                //2nd Way
+                //dbContext.Set<Employee>().Remove(emp01);
+                //3rd Way
+                //dbContext.Remove(emp01);
+                Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+                dbContext.SaveChanges();
+                Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+                Console.WriteLine($"After Delete : Name : {emp01.Name}");
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+            }
+            #endregion
             #endregion
             #endregion
         }
