@@ -162,6 +162,9 @@ namespace EntitySession01
             #region One to Many RS
 
             #endregion
+            #region Many to Many RS
+
+            #endregion
             #endregion
         }
     }

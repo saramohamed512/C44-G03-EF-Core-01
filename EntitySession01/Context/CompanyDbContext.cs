@@ -59,6 +59,12 @@ namespace EntitySession01.Context
             //    .WithOne(e => e.EmployeeDepartment)
             //    .HasForeignKey(e => e.EmpDeptId);
 
+            modelBuilder.Entity<Student>()
+                .HasMany(c => c.Courses)
+                .WithMany(s => s.Students)
+                .UsingEntity<StdCrs>()
+                .HasKey(SC=> new {SC.StudentId, SC.CourseId});
+               
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }
@@ -67,6 +73,10 @@ namespace EntitySession01.Context
         public DbSet<Adress> Adresses { get; set; }
 
         //public DbSet<Product> Products { get; set; }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
+
 
 
 
