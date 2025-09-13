@@ -28,5 +28,8 @@ namespace EntitySession01Ass.Models
         public string Description { get; set; }
 
         public int? Top_ID { get; set; }
+        public Topic Topic { get; set; }
+        public ICollection<Stud_Course> StudentCourses { get; set; } = new List<Stud_Course>();
+        public ICollection<Course_Inst> CourseInstructors { get; set; } = new List<Course_Inst>();
     }
 }

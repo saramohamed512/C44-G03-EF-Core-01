@@ -16,5 +16,8 @@ namespace EntitySession01Ass.Models
         public int course_ID { get; set; }
         [MaxLength(200)]
         public string evaluate { get; set; }
+
+        public Instructor Instructor { get; set; }
+        public Course Course { get; set; }
     }
 }

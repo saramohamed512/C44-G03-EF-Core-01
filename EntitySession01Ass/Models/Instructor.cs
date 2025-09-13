@@ -28,6 +28,8 @@ namespace EntitySession01Ass.Models
         public decimal? Bouns { get; set; }
 
         public int? Dept_ID { get; set; }
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
+       
+        public ICollection<Course_Inst> CourseInstructors { get; set; } = new List<Course_Inst>();
     }
 }

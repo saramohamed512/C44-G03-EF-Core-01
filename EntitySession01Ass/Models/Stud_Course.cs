@@ -15,5 +15,8 @@ namespace EntitySession01Ass.Models
         public int stud_ID { get; set; }
         public int course_ID { get; set; }
         public decimal? Grade { get; set; }
+
+        public Student Student { get; set; }
+        public Course Course { get; set; }
     }
 }

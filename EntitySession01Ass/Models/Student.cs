@@ -17,5 +17,8 @@ namespace EntitySession01Ass.Models
         [Range(20, 50)]
         public int? Age { get; set; }
         public int? Dep_Id { get; set; }
+
+        public ICollection<Stud_Course> StudentCourses { get; set; } = new List<Stud_Course>();
+
     }
 }
