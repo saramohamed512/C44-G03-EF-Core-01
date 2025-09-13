@@ -35,6 +35,23 @@ namespace EntitySession01Ass.Context
             //  .HasForeignKey<Instructor>(i => i.Dept_ID)
             //  .OnDelete(DeleteBehavior.NoAction);
 
+
+            // Configure decimal precision
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.Salary)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.HourRate)
+                .HasPrecision(10, 2);
+
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.Bouns)
+                .HasPrecision(10, 2);
+
+            modelBuilder.Entity<Stud_Course>()
+                .Property(sc => sc.Grade)
+                .HasPrecision(5, 2);
             // Configure composite keys for junction tables
             modelBuilder.Entity<Stud_Course>()
                 .HasKey(sc => new { sc.stud_ID, sc.course_ID });
@@ -126,24 +143,7 @@ namespace EntitySession01Ass.Context
             );
         }
 
-        private void SeedDepartments(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Department>().HasData(
-                new Department { ID = 1, Name = "Computer Science", HiringDate = DateTime.Now.AddYears(-5) },
-                new Department { ID = 2, Name = "Information Technology", HiringDate = DateTime.Now.AddYears(-3) },
-                new Department { ID = 3, Name = "Software Engineering", HiringDate = DateTime.Now.AddYears(-2) }
-            );
-        }
-
-        private void SeedInstructors(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Instructor>().HasData(
-                new Instructor { ID = 1, Name = "Dr. Ahmed Ali", Address = "Cairo", Salary = 15000, Dept_ID = 1 },
-                new Instructor { ID = 2, Name = "Prof. Mohamed Hassan", Address = "Alexandria", Salary = 18000, Dept_ID = 1 },
-                new Instructor { ID = 3, Name = "Dr. Sarah Smith", Address = "Giza", Salary = 16000, Dept_ID = 2 }
-            );
-        }
-
+    
         private void SeedStudents(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>().HasData(
@@ -162,13 +162,58 @@ namespace EntitySession01Ass.Context
             );
         }
 
+        private void SeedDepartments(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Department>().HasData(
+                new Department { ID = 1, Name = "Computer Science", HiringDate = new DateTime(2019, 1, 15) },
+                new Department { ID = 2, Name = "Information Technology", HiringDate = new DateTime(2021, 3, 10) },
+                new Department { ID = 3, Name = "Software Engineering", HiringDate = new DateTime(2022, 6, 20) }
+            );
+        }
+
+        private void SeedInstructors(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Instructor>().HasData(
+                new Instructor
+                {
+                    ID = 1,
+                    Name = "Dr. Ahmed Ali",
+                    Address = "Cairo",
+                    Salary = 15000m,
+                    Dept_ID = 1,
+                    HourRate = 50.00m,
+                    Bouns = 2000.00m
+                },
+                new Instructor
+                {
+                    ID = 2,
+                    Name = "Prof. Mohamed Hassan",
+                    Address = "Alexandria",
+                    Salary = 18000m,
+                    Dept_ID = 1,
+                    HourRate = 60.00m,
+                    Bouns = 2500.00m
+                },
+                new Instructor
+                {
+                    ID = 3,
+                    Name = "Dr. Sarah Smith",
+                    Address = "Giza",
+                    Salary = 16000m,
+                    Dept_ID = 2,
+                    HourRate = 55.00m,
+                    Bouns = 2200.00m
+                }
+            );
+        }
+
         private void SeedStudentCourses(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Stud_Course>().HasData(
-                new Stud_Course { stud_ID = 1, course_ID = 1, Grade = 85.5m },
-                new Stud_Course { stud_ID = 1, course_ID = 2, Grade = 90.0m },
-                new Stud_Course { stud_ID = 2, course_ID = 1, Grade = 78.0m },
-                new Stud_Course { stud_ID = 3, course_ID = 3, Grade = 92.5m }
+                new Stud_Course { stud_ID = 1, course_ID = 1, Grade = 85.50m },
+                new Stud_Course { stud_ID = 1, course_ID = 2, Grade = 90.00m },
+                new Stud_Course { stud_ID = 2, course_ID = 1, Grade = 78.00m },
+                new Stud_Course { stud_ID = 3, course_ID = 3, Grade = 92.50m }
             );
         }
 
