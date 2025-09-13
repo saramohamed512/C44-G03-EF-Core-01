@@ -266,17 +266,17 @@ namespace EntitySession01
             //}
             #endregion
             #region Example 02
-            var Dept01 = dbContext.Departments.FirstOrDefault(D => D.DeptId == 3);
-            if (Dept01 != null)
-            {
-                //Explicit Loading
-                dbContext.Entry(Dept01).Collection(D => D.Employees).Load();
-                Console.WriteLine($"Department Name : {Dept01.DeptName}");
-                foreach (var emp in Dept01.Employees)
-                {
-                    Console.WriteLine($"Employee Name : {emp.Name}");
-                }
-            }
+            //var Dept01 = dbContext.Departments.FirstOrDefault(D => D.DeptId == 3);
+            //if (Dept01 != null)
+            //{
+            //    //Explicit Loading
+            //    dbContext.Entry(Dept01).Collection(D => D.Employees).Load();
+            //    Console.WriteLine($"Department Name : {Dept01.DeptName}");
+            //    foreach (var emp in Dept01.Employees)
+            //    {
+            //        Console.WriteLine($"Employee Name : {emp.Name}");
+            //    }
+            //}
             #endregion
             #endregion
             #endregion
