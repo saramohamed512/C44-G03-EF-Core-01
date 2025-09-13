@@ -65,7 +65,7 @@ namespace EntitySession01
             #endregion
             #region Session02
             #region Query Object Model [CRUD Operations]
-            using CompanyDbContext dbContext = new CompanyDbContext();
+            //using CompanyDbContext dbContext = new CompanyDbContext();
 
             #region Add new record
             //dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
@@ -131,31 +131,34 @@ namespace EntitySession01
             //}
             #endregion
             #region Delete record
-            var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 1);
-            if (emp01 != null)
-            {
-                Console.WriteLine($"Before Delete : Name : {emp01.Name}");
-                //Different Ways to Delete Entity to Table in DB
-                //1st Way
-                dbContext.Employees.Remove(emp01);
-                //2nd Way
-                //dbContext.Set<Employee>().Remove(emp01);
-                //3rd Way
-                //dbContext.Remove(emp01);
-                Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
-                dbContext.SaveChanges();
-                Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
-                Console.WriteLine($"After Delete : Name : {emp01.Name}");
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-            }
+            //var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 1);
+            //if (emp01 != null)
+            //{
+            //    Console.WriteLine($"Before Delete : Name : {emp01.Name}");
+            //    //Different Ways to Delete Entity to Table in DB
+            //    //1st Way
+            //    dbContext.Employees.Remove(emp01);
+            //    //2nd Way
+            //    //dbContext.Set<Employee>().Remove(emp01);
+            //    //3rd Way
+            //    //dbContext.Remove(emp01);
+            //    Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            //    dbContext.SaveChanges();
+            //    Console.WriteLine($"Entity State : {dbContext.Entry<Employee>(emp01).State}");
+            //    Console.WriteLine($"After Delete : Name : {emp01.Name}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
             #endregion
             #endregion
             #region Relationships Between Classes
 
             #endregion
+
+            #endregion
+            #region Session03
 
             #endregion
         }
