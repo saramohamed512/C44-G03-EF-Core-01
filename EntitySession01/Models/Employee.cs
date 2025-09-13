@@ -20,8 +20,19 @@ namespace EntitySession01.Models
         ////Nevigation Property
         //public Department ManagerDept { get; set; }=null!;
         //Nevigation Property
+        [InverseProperty(nameof(Department.Manager))]
+
         public Department? ManagerDept { get; set; } = null!;
 
         public Adress EmpAdress { get; set;  }= null!;
+
+
+        //FK
+        [ForeignKey("EmployeeDepartment")]
+        public int EmpDeptId { get; set; }
+        //One to Many RS [Work] Employee_Department
+        [InverseProperty("Employees")]
+
+        public Department EmployeeDepartment { get; set; }
     }
 }

@@ -21,6 +21,14 @@ namespace EntitySession01.Models
         public int ManagerId { get; set; }
 
         //Nevigation Property
+        [InverseProperty(nameof(Employee.ManagerDept))]
+
         public Employee? Manager { get; set; } = null!;
+
+        //One to Many
+        //[InverseProperty("EmployeeDepartment")]
+        [InverseProperty(nameof(Employee.EmployeeDepartment))]
+
+        public ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
     }
 }

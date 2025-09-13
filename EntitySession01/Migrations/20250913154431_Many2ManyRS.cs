@@ -5,11 +5,18 @@
 namespace EntitySession01.Migrations
 {
     /// <inheritdoc />
-    public partial class relationships : Migration
+    public partial class Many2ManyRS : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "EmpDeptId",
+                table: "Employees",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.CreateTable(
                 name: "Adresses",
                 columns: table => new
@@ -51,20 +58,45 @@ namespace EntitySession01.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employees_EmpDeptId",
+                table: "Employees",
+                column: "EmpDeptId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Departments_ManagerId",
                 table: "Departments",
                 column: "ManagerId",
                 unique: true);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Employees_Departments_EmpDeptId",
+                table: "Employees",
+                column: "EmpDeptId",
+                principalTable: "Departments",
+                principalColumn: "DeptId",
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Employees_Departments_EmpDeptId",
+                table: "Employees");
+
             migrationBuilder.DropTable(
                 name: "Adresses");
 
             migrationBuilder.DropTable(
                 name: "Departments");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Employees_EmpDeptId",
+                table: "Employees");
+
+            migrationBuilder.DropColumn(
+                name: "EmpDeptId",
+                table: "Employees");
         }
     }
 }

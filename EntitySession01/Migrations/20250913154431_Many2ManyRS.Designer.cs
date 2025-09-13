@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntitySession01.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    [Migration("20250910181635_relationships")]
-    partial class relationships
+    [Migration("20250913154431_Many2ManyRS")]
+    partial class Many2ManyRS
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,9 @@ namespace EntitySession01.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<int>("EmpDeptId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
@@ -67,6 +70,8 @@ namespace EntitySession01.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmpDeptId");
 
                     b.ToTable("Employees");
                 });
@@ -114,6 +119,12 @@ namespace EntitySession01.Migrations
 
             modelBuilder.Entity("EntitySession01.Models.Employee", b =>
                 {
+                    b.HasOne("EntitySession01.Models.Department", "EmployeeDepartment")
+                        .WithMany("Employees")
+                        .HasForeignKey("EmpDeptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("EntitySession01.Models.Adress", "EmpAdress", b1 =>
                         {
                             b1.Property<int>("EmployeeId")
@@ -138,6 +149,13 @@ namespace EntitySession01.Migrations
 
                     b.Navigation("EmpAdress")
                         .IsRequired();
+
+                    b.Navigation("EmployeeDepartment");
+                });
+
+            modelBuilder.Entity("EntitySession01.Models.Department", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("EntitySession01.Models.Employee", b =>

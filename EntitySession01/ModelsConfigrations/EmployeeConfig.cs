@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,11 @@ namespace EntitySession01.ModelsConfigrations
                     .IsRequired(false);
 
             builder.OwnsOne(E => E.EmpAdress, Adress => Adress.WithOwner());
+
+
+        builder.HasOne(e => e.EmployeeDepartment)
+                       .WithMany(D => D.Employees)
+                       .HasForeignKey(e => e.EmpDeptId);
         }
     }
    

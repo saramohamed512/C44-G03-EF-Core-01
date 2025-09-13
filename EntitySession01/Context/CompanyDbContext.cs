@@ -48,6 +48,17 @@ namespace EntitySession01.Context
                         .WithOne(e => e.Manager)
                         .HasForeignKey<Department>(d=>d.ManagerId);
 
+            //modelBuilder.Entity<Employee>()
+            //    .HasOne(e => e.EmployeeDepartment)
+            //            .WithMany(D => D.Employees)
+            //            .HasForeignKey(e => e.EmpDeptId);
+
+            //another way
+            //modelBuilder.Entity<Department>()
+            //    .HasMany(d => d.Employees)
+            //    .WithOne(e => e.EmployeeDepartment)
+            //    .HasForeignKey(e => e.EmpDeptId);
+
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }
@@ -55,7 +66,7 @@ namespace EntitySession01.Context
         public DbSet<Department> Departments { get; set; }
         public DbSet<Adress> Adresses { get; set; }
 
-        public DbSet<Product> Products { get; set; }
+        //public DbSet<Product> Products { get; set; }
 
 
 
