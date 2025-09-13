@@ -221,7 +221,7 @@ namespace EntitySession01
             //    #endregion
             //    #region Eager Loading
 
-              
+
             //    //Eager Loading
             //    //var emp02 = dbContext.Employees
             //    //            .Include(E => E.EmployeeDepartment)
@@ -245,13 +245,39 @@ namespace EntitySession01
 
             #region default nav property
 
-           
+
             // default nav property
             //var EmpDept = (from D in dbContext.Departments
             //              where D.DeptId== emp01.EmpDeptId
             //              select D
             //              ).FirstOrDefault();
             //Console.WriteLine($"Employee Dept Name : {EmpDept?.DeptName}");
+            #endregion
+
+            #region Explicit Loading
+            #region Example 01
+            //var Emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (Emp01 != null)
+            //{
+            //    //Explicit Loading
+            //    dbContext.Entry(Emp01).Reference(E => E.EmployeeDepartment).Load();
+            //    Console.WriteLine($"Employee Name : {Emp01.Name}");
+            //    Console.WriteLine($"Employee Dept Name : {Emp01.EmployeeDepartment.DeptName}");
+            //}
+            #endregion
+            #region Example 02
+            var Dept01 = dbContext.Departments.FirstOrDefault(D => D.DeptId == 3);
+            if (Dept01 != null)
+            {
+                //Explicit Loading
+                dbContext.Entry(Dept01).Collection(D => D.Employees).Load();
+                Console.WriteLine($"Department Name : {Dept01.DeptName}");
+                foreach (var emp in Dept01.Employees)
+                {
+                    Console.WriteLine($"Employee Name : {emp.Name}");
+                }
+            }
+            #endregion
             #endregion
             #endregion
             #endregion
