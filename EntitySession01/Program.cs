@@ -9,6 +9,8 @@ namespace EntitySession01
     {
         static void Main(string[] args)
         {
+            using CompanyDbContext dbContext = new CompanyDbContext();
+
             #region Session01
             #region Entity Framework Core
             /*
@@ -163,6 +165,36 @@ namespace EntitySession01
 
             #endregion
             #region Many to Many RS
+
+            #endregion
+            #region Data Seed
+            /*
+             * 3 Ways to Seed Data
+             * 1. Using Migrations
+             * 2. Manual Seed
+             * 3. Dynamic Seed
+             */
+
+            #region Manual Seed
+
+            //Department Dep01 = new Department()
+            //{
+            //    DeptName = "IT"
+            //};
+            //dbContext.Add(Dep01);
+            //dbContext.SaveChanges();
+            //List<Department> Deps = new List<Department>()
+            //{
+            //    new Department(){ DeptName= "HR"},
+            //    new Department(){ DeptName= "Finance"},
+            //    new Department(){ DeptName= "Marketing"},
+            //    new Department(){ DeptName= "Sales"}
+            //};
+            //dbContext.AddRange(Deps);
+            //dbContext.SaveChanges();
+            #endregion
+            #endregion
+            #region Using Migrations
 
             #endregion
             #endregion

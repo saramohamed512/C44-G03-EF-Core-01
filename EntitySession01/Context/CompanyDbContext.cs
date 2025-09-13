@@ -64,7 +64,15 @@ namespace EntitySession01.Context
                 .WithMany(s => s.Students)
                 .UsingEntity<StdCrs>()
                 .HasKey(SC=> new {SC.StudentId, SC.CourseId});
-               
+
+            #region Seed Data Through Migration
+            //modelBuilder.Entity<Department>().HasData(
+            //    new Department() { DeptId = 1, DeptName = "IT", ManagerId = null },
+            //    new Department() { DeptId = 2, DeptName = "HR", ManagerId = null },
+            //    new Department() { DeptId = 3, DeptName = "Payroll", ManagerId = null }
+            //    );
+            #endregion
+
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }
