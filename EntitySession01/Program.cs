@@ -199,16 +199,60 @@ namespace EntitySession01
 
             #endregion
             #region Dynamic Seed
-            bool IsSeeded = CompanyContextSeed.Seed(dbContext);
-            if (IsSeeded)
-            {
-                Console.WriteLine("Seeded Successfully");
-            }
-            else
-            {
-                Console.WriteLine("Failed to Seed");
-            }
+            //bool IsSeeded = CompanyContextSeed.Seed(dbContext);
+            //if (IsSeeded)
+            //{
+            //    Console.WriteLine("Seeded Successfully");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Failed to Seed");
+            //}
 
+            #endregion
+            #region Loading Related Data
+            //var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (emp01 != null)
+            //{
+            //    #region Lazy Loading
+            //    //Lazy Loading
+            //    //Console.WriteLine($"Employee Name : {emp01.Name}");
+            //    //Console.WriteLine($"Employee Dept Name : {emp01.EmployeeDepartment.DeptName}");
+            //    #endregion
+            //    #region Eager Loading
+
+              
+            //    //Eager Loading
+            //    //var emp02 = dbContext.Employees
+            //    //            .Include(E => E.EmployeeDepartment)
+            //    //            .FirstOrDefault(E => E.Id == 5);
+            //    //Console.WriteLine($"Employee Name : {emp02.Name}");
+            //    //Console.WriteLine($"Employee Dept Name : {emp02.EmployeeDepartment.DeptName}");
+            //    ////Explicit Loading
+            //    //var emp03 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
+            //    //if (emp03 != null)
+            //    //{
+            //    //    dbContext.Entry(emp03).Reference(E => E.EmployeeDepartment).Load();
+            //    //    Console.WriteLine($"Employee Name : {emp03.Name}");
+            //    //    Console.WriteLine($"Employee Dept Name : {emp03.EmployeeDepartment.DeptName}");
+            //    //}
+            //    #endregion
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
+
+            #region default nav property
+
+           
+            // default nav property
+            //var EmpDept = (from D in dbContext.Departments
+            //              where D.DeptId== emp01.EmpDeptId
+            //              select D
+            //              ).FirstOrDefault();
+            //Console.WriteLine($"Employee Dept Name : {EmpDept?.DeptName}");
+            #endregion
             #endregion
             #endregion
         }
