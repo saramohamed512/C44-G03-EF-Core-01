@@ -29,7 +29,7 @@ namespace EntitySession01.Models
 
         //FK
         [ForeignKey("EmployeeDepartment")]
-        public int EmpDeptId { get; set; }
+        public int? EmpDeptId { get; set; }
         //One to Many RS [Work] Employee_Department
         [InverseProperty("Employees")]
 

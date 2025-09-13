@@ -1,4 +1,5 @@
 ﻿using EntitySession01.Context;
+using EntitySession01.Data;
 using EntitySession01.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -195,6 +196,18 @@ namespace EntitySession01
             #endregion
             #endregion
             #region Using Migrations
+
+            #endregion
+            #region Dynamic Seed
+            bool IsSeeded = CompanyContextSeed.Seed(dbContext);
+            if (IsSeeded)
+            {
+                Console.WriteLine("Seeded Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Failed to Seed");
+            }
 
             #endregion
             #endregion
