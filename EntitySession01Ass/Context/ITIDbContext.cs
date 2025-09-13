@@ -62,10 +62,10 @@ namespace EntitySession01Ass.Context
             #region ONE-TO-MANY RELATIONSHIPS
             // Department -> Students (1:*)
             modelBuilder.Entity<Department>()
-                .HasMany(d => d.Students)
-                .WithOne()
-                .HasForeignKey(s => s.Dep_Id)
-                .OnDelete(DeleteBehavior.Restrict);
+              .HasMany(d => d.Students)
+              .WithOne(s => s.Department)  
+              .HasForeignKey(s => s.Dep_Id)
+              .OnDelete(DeleteBehavior.Restrict);
 
             // Department -> Instructors (1:*)
             modelBuilder.Entity<Department>()
