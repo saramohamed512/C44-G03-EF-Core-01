@@ -270,7 +270,9 @@ namespace EntitySession01
             //if (Dept01 != null)
             //{
             //    //Explicit Loading
-            //    dbContext.Entry(Dept01).Collection(D => D.Employees).Load();
+            //    //dbContext.Entry(Dept01).Collection(D => D.Employees).Load();
+            //    dbContext.Entry(Dept01).Collection(D => D.Employees).Query().Where(E=>E.Age <30).Load();
+
             //    Console.WriteLine($"Department Name : {Dept01.DeptName}");
             //    foreach (var emp in Dept01.Employees)
             //    {
