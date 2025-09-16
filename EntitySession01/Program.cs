@@ -291,20 +291,75 @@ namespace EntitySession01
              * 2- Enable Proxies in DbContext
              * 3- Make Navigation Properties Virtual and Classes be Public
              */
-            var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
-            if (emp01 != null)
-            {
-                //Lazy Loading
-                Console.WriteLine($"Employee Name : {emp01.Name}");
-                Console.WriteLine($"Employee Dept Name : {emp01.EmployeeDepartment.DeptName}");//related data
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-            }
+            //var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (emp01 != null)
+            //{
+            //    //Lazy Loading
+            //    Console.WriteLine($"Employee Name : {emp01.Name}");
+            //    Console.WriteLine($"Employee Dept Name : {emp01.EmployeeDepartment.DeptName}");//related data
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
             #endregion
             #endregion
+            #region Join Categories [LINQ]
+            #region Get Department That Has Employees
+            //fluent syntax
+            //var Result = dbContext.Departments.Join(dbContext.Employees,
+            //    D => D.DeptId,
+            //    E => E.EmpDeptId,
+            //    (D, E) => new
+            //    {
+            //        EmpId = E.Id,
+            //        EmpName = E.Name,
+            //        DeptID = D.DeptId,
+            //        DeptName = D.DeptName
+            //    });
 
+            //query syntax
+            //var Result = from D in dbContext.Departments
+            //             join E in dbContext.Employees
+            //             on D.DeptId equals E.EmpDeptId
+            //             select new
+            //             {
+            //                 EmpId = E.Id,
+            //                 EmpName = E.Name,
+            //                 DeptID = D.DeptId,
+            //                 DeptName = D.DeptName
+            //             };
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine($"EmpId : {item.EmpId}");
+            //    Console.WriteLine($"EmpName : {item.EmpName}");
+            //    Console.WriteLine($"DeptID : {item.DeptID}");
+            //    Console.WriteLine($"DeptName : {item.DeptName}");
+            //    Console.WriteLine("===================================");
+            //}
+
+            #endregion
+            #region Get Departments Managers
+            //var Result = dbContext.Employees.Join(dbContext.Departments,
+            //    E => E.Id,
+            //    D => D.ManagerId,
+            //    (E, D) => new
+            //    {
+            //        EmpId = E.Id,
+            //        EmpName = E.Name,
+            //        DeptID = D.DeptId,
+            //        DeptName = D.DeptName
+            //    });
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine($"EmpId : {item.EmpId}");
+            //    Console.WriteLine($"EmpName : {item.EmpName}");
+            //    Console.WriteLine($"DeptID : {item.DeptID}");
+            //    Console.WriteLine($"DeptName : {item.DeptName}");
+            //    Console.WriteLine("===================================");
+            //}
+            #endregion
+            #endregion
             #endregion
         }
     }
