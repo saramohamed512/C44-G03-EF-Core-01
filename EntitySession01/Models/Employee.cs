@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("DynamicProxyAssembly2")]
 
 namespace EntitySession01.Models
 {
@@ -22,9 +23,9 @@ namespace EntitySession01.Models
         //Nevigation Property
         [InverseProperty(nameof(Department.Manager))]
 
-        public Department? ManagerDept { get; set; } = null!;
+        public virtual Department? ManagerDept { get; set; } = null!;
 
-        public Adress EmpAdress { get; set;  }= null!;
+        public virtual Adress EmpAdress { get; set;  }= null!;
 
 
         //FK
@@ -33,6 +34,6 @@ namespace EntitySession01.Models
         //One to Many RS [Work] Employee_Department
         [InverseProperty("Employees")]
 
-        public Department EmployeeDepartment { get; set; }
+        public virtual Department EmployeeDepartment { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitySession01.Models
 {
-    internal class StdCrs
+    public class StdCrs
     {
         public int StudentId { get; set; }
         public int CourseId { get; set; }

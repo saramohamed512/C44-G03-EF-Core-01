@@ -17,7 +17,9 @@ namespace EntitySession01.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("Data Source = . ; Intial Catalog = CompanyRoute; Integrated Securty = true");
-            optionsBuilder.UseSqlServer("Server = . ; Database = CompanyRoute; Trusted_Connection = true; TrustServerCertificate= true");
+            optionsBuilder.UseSqlServer("Server = . ; Database = CompanyRoute; Trusted_Connection = true; TrustServerCertificate= true")
+                .UseLazyLoadingProxies();//Enable Lazy Loading
+
 
         }
         #region FluentAPIS

@@ -283,6 +283,29 @@ namespace EntitySession01
             #endregion
             #endregion
             #endregion
+            #region Session04
+            #region Loading Related Data
+            #region Lazy Loading
+            /*
+             * 1- Install Microsoft.EntityFrameworkCore.Proxies
+             * 2- Enable Proxies in DbContext
+             * 3- Make Navigation Properties Virtual and Classes be Public
+             */
+            var emp01 = dbContext.Employees.FirstOrDefault(E => E.Id == 5);
+            if (emp01 != null)
+            {
+                //Lazy Loading
+                Console.WriteLine($"Employee Name : {emp01.Name}");
+                Console.WriteLine($"Employee Dept Name : {emp01.EmployeeDepartment.DeptName}");//related data
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+            }
+            #endregion
+            #endregion
+
+            #endregion
         }
     }
 }

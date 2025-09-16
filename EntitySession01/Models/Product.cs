@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitySession01.Models
 {
-    internal class Product
+    public class Product
     {
         public string? Name { get; set; }
     }

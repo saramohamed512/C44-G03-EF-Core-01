@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EntitySession01.Models
 {
     [Table("Users")]
-    internal class User
+    public class User
     {
         //Data Annotation
         [Key]
@@ -25,10 +25,10 @@ namespace EntitySession01.Models
         public int Age { get; set; }
         [Phone]
         [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
+        public virtual string PhoneNumber { get; set; }
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public virtual string Password { get; set; }
         [NotMapped]
-        public int MyProperty { get; set; }
+        public virtual int MyProperty { get; set; }
     }
 }

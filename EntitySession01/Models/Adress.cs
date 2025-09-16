@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EntitySession01.Models
 {
     //[Owned]
-    internal class Adress
+    public class Adress
     {
         public  string? city { get; set; }
         public string? street { get; set; }

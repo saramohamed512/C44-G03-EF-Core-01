@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("DynamicProxyAssembly2")]
+
 namespace EntitySession01.Models
 {
     [PrimaryKey(nameof(DeptId))]
@@ -23,7 +25,7 @@ namespace EntitySession01.Models
         //Nevigation Property
         [InverseProperty(nameof(Employee.ManagerDept))]
 
-        public Employee? Manager { get; set; } = null!;
+        public  virtual Employee? Manager { get; set; } = null!;
 
         //One to Many
         //[InverseProperty("EmployeeDepartment")]
