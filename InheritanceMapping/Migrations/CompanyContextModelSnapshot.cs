@@ -22,7 +22,7 @@ namespace InheritanceMapping.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("InheritanceMapping.FullTimeEmployee", b =>
+            modelBuilder.Entity("InheritanceMapping.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,8 +36,26 @@ namespace InheritanceMapping.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<string>("EmployeeType")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+
+                    b.HasDiscriminator<string>("EmployeeType").HasValue("Employee");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("InheritanceMapping.FullTimeEmployee", b =>
+                {
+                    b.HasBaseType("InheritanceMapping.Employee");
 
                     b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,2)");
@@ -45,24 +63,12 @@ namespace InheritanceMapping.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("FullTimeEmployees");
+                    b.HasDiscriminator().HasValue("FTE");
                 });
 
             modelBuilder.Entity("InheritanceMapping.PartTimeEmployee", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Adress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.HasBaseType("InheritanceMapping.Employee");
 
                     b.Property<int>("CountOfHours")
                         .HasColumnType("int");
@@ -70,12 +76,7 @@ namespace InheritanceMapping.Migrations
                     b.Property<decimal>("HourlyRate")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PartTimeEmployees");
+                    b.HasDiscriminator().HasValue("PTE");
                 });
 #pragma warning restore 612, 618
         }
