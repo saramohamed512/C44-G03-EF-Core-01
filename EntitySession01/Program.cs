@@ -413,6 +413,9 @@ namespace EntitySession01
 
             #endregion
             #endregion
+            #region MyRegion
+
+            #endregion
             #endregion
         }
     }
