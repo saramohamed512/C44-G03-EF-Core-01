@@ -359,6 +359,59 @@ namespace EntitySession01
             //    Console.WriteLine("===================================");
             //}
             #endregion
+            #region Group Join - Left Join
+            #region Get All Departments That Has Employees or Not
+            //var Result = dbContext.Departments.GroupJoin(dbContext.Employees,
+            //    D => D.DeptId,
+            //    E => E.EmpDeptId,
+            //    (D, Emps) => new
+            //    {
+            //        DeptID = D.DeptId,
+            //        DeptName = D.DeptName,
+            //        Employees = Emps
+            //    });
+
+            //query syntax
+            //var Result = from D in dbContext.Departments
+            //             join E in dbContext.Employees
+            //             on D.DeptId equals E.EmpDeptId into Emps
+            //             select new
+            //             {
+            //                 DeptID = D.DeptId,
+            //                 DeptName = D.DeptName,
+            //                 Employees = Emps
+            //             };
+
+            //foreach (var item in Result)
+            // {
+            //    Console.WriteLine($"DeptID : {item.DeptID}");
+            //    Console.WriteLine($"DeptName : {item.DeptName}");
+            //    Console.WriteLine("===================================");
+            //    foreach (var emp in item.Employees)
+            //    {
+            //        Console.WriteLine("----------- Employee Info -----------");
+            //        Console.WriteLine($"EmpId : {emp.Id}");
+            //        Console.WriteLine($"EmpName : {emp.Name}");
+            //        Console.WriteLine("-----------------------------------");
+            //    }
+            //    Console.WriteLine("===================================");
+            //}
+            #endregion
+            #endregion
+
+            #region Right Outer join
+            /*
+             * Supported in EF Core
+             * 
+             */
+
+            #endregion
+            #region Cross join
+            /*
+             * Not Directly Supported in EF Core
+             */
+
+            #endregion
             #endregion
             #endregion
         }
