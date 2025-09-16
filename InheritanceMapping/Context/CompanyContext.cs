@@ -17,24 +17,41 @@ namespace InheritanceMapping.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FullTimeEmployee>()
-                .HasBaseType<Employee>();
-            modelBuilder.Entity<PartTimeEmployee>()
-                .HasBaseType<Employee>();
+            #region TPH
 
-            modelBuilder.Entity<Employee>()
-                .HasDiscriminator<string>("EmployeeType")
-                .HasValue<FullTimeEmployee>("FTE")
-                .HasValue<PartTimeEmployee>("PTE");
+
+            //modelBuilder.Entity<FullTimeEmployee>()
+            //    .HasBaseType<Employee>();
+            //modelBuilder.Entity<PartTimeEmployee>()
+            //    .HasBaseType<Employee>();
+
+            //modelBuilder.Entity<Employee>()
+            //    .HasDiscriminator<string>("EmployeeType")
+            //    .HasValue<FullTimeEmployee>("FTE")
+            //    .HasValue<PartTimeEmployee>("PTE");
+            #endregion
+            #region TPT
+            modelBuilder.Entity<FullTimeEmployee>()
+                .ToTable("FullTimeEmployees");
+
+            modelBuilder.Entity<PartTimeEmployee>()
+                .ToTable("PartTimeEmployees");
+
+            #endregion
         }
         #region 1.Table Per Concrete Type [TPCT]
         //public DbSet<FullTimeEmployee> FullTimeEmployees { get; set; }
         //public DbSet<PartTimeEmployee> PartTimeEmployees { get; set; }
         #endregion
         #region 2.Table Per Hierarchy [TPH]
-        public DbSet<Employee> Employees { get; set; }
-
+        //public DbSet<Employee> Employees { get; set; }
         #endregion
+        #region 3.Table Per Type
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<FullTimeEmployee> FullTimeEmployees { get; set; }
+        public DbSet<PartTimeEmployee> PartTimeEmployees { get; set; }
+        #endregion
+
 
 
     }

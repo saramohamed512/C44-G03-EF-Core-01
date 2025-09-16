@@ -36,11 +36,6 @@ namespace InheritanceMapping.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeType")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -48,9 +43,7 @@ namespace InheritanceMapping.Migrations
 
                     b.ToTable("Employees");
 
-                    b.HasDiscriminator<string>("EmployeeType").HasValue("Employee");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("InheritanceMapping.FullTimeEmployee", b =>
@@ -63,7 +56,7 @@ namespace InheritanceMapping.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasDiscriminator().HasValue("FTE");
+                    b.ToTable("FullTimeEmployees", (string)null);
                 });
 
             modelBuilder.Entity("InheritanceMapping.PartTimeEmployee", b =>
@@ -76,7 +69,25 @@ namespace InheritanceMapping.Migrations
                     b.Property<decimal>("HourlyRate")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasDiscriminator().HasValue("PTE");
+                    b.ToTable("PartTimeEmployees", (string)null);
+                });
+
+            modelBuilder.Entity("InheritanceMapping.FullTimeEmployee", b =>
+                {
+                    b.HasOne("InheritanceMapping.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("InheritanceMapping.FullTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("InheritanceMapping.PartTimeEmployee", b =>
+                {
+                    b.HasOne("InheritanceMapping.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("InheritanceMapping.PartTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

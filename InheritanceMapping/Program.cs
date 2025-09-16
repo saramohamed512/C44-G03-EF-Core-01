@@ -95,7 +95,40 @@ namespace InheritanceMapping
             //}
 
             #endregion
-           
+            #region 3.Table Per Type [TPT]
+            //FullTimeEmployee fullTimeEmployee = new FullTimeEmployee()
+            //{
+            //    Name = "Full Time Employee 1",
+            //    Salary = 50000,
+            //    Age = 24,
+            //    StartDate = DateTime.Now,
+            //    Adress = "Address 1"
+            //};
+            //PartTimeEmployee partTimeEmployee = new PartTimeEmployee()
+            //{
+            //    Name = "Part Time Employee 1",
+            //    HourlyRate = 50,
+            //    Age = 22,
+            //    Adress = "Address 2"
+            //};
+            //dbContext.Add(fullTimeEmployee);
+            //dbContext.Add(partTimeEmployee);
+            //dbContext.SaveChanges();
+
+            //var employees = (from emp in dbContext.Employees
+            //                 select emp).ToList();
+            //foreach (var emp in employees)
+            //    {
+            //    if (emp is FullTimeEmployee fte)
+            //    {
+            //        Console.WriteLine($"Full Time Employee: {fte.Name}, Salary: {fte.Salary}");
+            //    }
+            //    else if (emp is PartTimeEmployee pte)
+            //    {
+            //        Console.WriteLine($"Part Time Employee: {pte.Name}, Hourly Rate: {pte.HourlyRate}");
+            //    }
+            //}
+            #endregion
             #endregion
 
         }
