@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySession01", "EntitySe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceMapping", "InheritanceMapping\InheritanceMapping.csproj", "{1FEE81F4-E2D4-4BB9-8F27-B3EDD6C26493}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirstApproach", "DatabaseFirstApproach\DatabaseFirstApproach.csproj", "{C992E1EA-D375-4B8D-9E80-041D1767618E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1FEE81F4-E2D4-4BB9-8F27-B3EDD6C26493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FEE81F4-E2D4-4BB9-8F27-B3EDD6C26493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FEE81F4-E2D4-4BB9-8F27-B3EDD6C26493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C992E1EA-D375-4B8D-9E80-041D1767618E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C992E1EA-D375-4B8D-9E80-041D1767618E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C992E1EA-D375-4B8D-9E80-041D1767618E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C992E1EA-D375-4B8D-9E80-041D1767618E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

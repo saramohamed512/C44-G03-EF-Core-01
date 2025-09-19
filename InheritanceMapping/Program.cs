@@ -161,6 +161,9 @@ namespace InheritanceMapping
             //Console.WriteLine($"Local Result :  { Result} ");
             #endregion
             #endregion
+            #region MyRegion
+
+            #endregion
             #endregion
 
         }
