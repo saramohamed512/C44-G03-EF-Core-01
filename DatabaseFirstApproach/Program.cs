@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace DatabaseFirstApproach
@@ -50,6 +51,36 @@ namespace DatabaseFirstApproach
             //    Console.WriteLine($"Employee Name: {emp.FirstName} {emp.LastName}");
             //}
 
+            #endregion
+            #region Run SQL Queries VIA Apllication
+            using Contexts.MyNorthwindDbContext dbContext = new Contexts.MyNorthwindDbContext();
+            #region Select
+
+            //int CategoryID = 1;
+            //var Result = dbContext.Products
+            //    .FromSqlRaw("SELECT * FROM Products Where CategoryID={0}",CategoryID);
+            //    foreach (var item in Result)
+            //    {
+            //        Console.WriteLine($"Product Name: {item.ProductName}");
+            //     }
+
+
+            ////$
+            //Result = dbContext.Products
+            //    .FromSqlInterpolated($"SELECT * FROM Products Where CategoryID={CategoryID}");
+            #endregion
+
+            #region Update , Delete
+            //var Result = dbContext.Database.ExecuteSqlRaw("UPDATE Products SET ProductName = 'ICE Coffe' WHERE ProductID=1");
+
+            //int ProductID = 1;
+            //var Result = dbContext.Database.ExecuteSqlInterpolated($"UPDATE Products SET ProductName = 'ICE Coffe' WHERE ProductID={ProductID}");
+
+            //Console.WriteLine(Result);
+
+            //var Result = dbContext.Database.ExecuteSqlInterpolated($"DELETE FROM Products WHERE ProductID={ProductID}");
+            //Console.WriteLine(Result);
+            #endregion
             #endregion
         }
     }
