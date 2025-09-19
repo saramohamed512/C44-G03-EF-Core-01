@@ -131,6 +131,38 @@ namespace InheritanceMapping
             #endregion
             #endregion
 
+            #region Session05
+            #region Local
+            #region Ex01
+
+            // Request DataBase
+            //var Result = dbContext.Employees.Any(E => E.Age != null);
+            //Console.WriteLine(Result);
+
+            //Local
+            //It Can't Send Request For DataBase
+            //var Result = dbContext.Employees.Local.Any(E => E.Age != null);
+            //Console.WriteLine(Result);
+
+            #endregion
+            #region Ex02
+            //var Emp01= dbContext.Employees.FirstOrDefault();
+            //if (Emp01 != null) { 
+            //    Console.WriteLine(Emp01);
+            //    Emp01.Age = null;
+            //}
+
+            ////DataBase
+            //var Result1 = dbContext.Employees.Any(E => E.Age == null);
+            //Console.WriteLine($"DB :  {Result1} ");
+
+            ////C# Application
+            //var Result = dbContext.Employees.Local.Any(E => E.Age == null);
+            //Console.WriteLine($"Local Result :  { Result} ");
+            #endregion
+            #endregion
+            #endregion
+
         }
     }
 }
