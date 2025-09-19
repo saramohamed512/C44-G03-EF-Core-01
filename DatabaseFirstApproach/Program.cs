@@ -8,6 +8,8 @@ namespace DatabaseFirstApproach
     {
         static void Main(string[] args)
         {
+            using Contexts.MyNorthwindDbContext dbContext = new Contexts.MyNorthwindDbContext();
+
             #region Database First With Commands
             /*
              * 1. Download Packages
@@ -53,7 +55,7 @@ namespace DatabaseFirstApproach
 
             #endregion
             #region Run SQL Queries VIA Apllication
-            using Contexts.MyNorthwindDbContext dbContext = new Contexts.MyNorthwindDbContext();
+            //using Contexts.MyNorthwindDbContext dbContext = new Contexts.MyNorthwindDbContext();
             #region Select
 
             //int CategoryID = 1;
@@ -81,6 +83,14 @@ namespace DatabaseFirstApproach
             //var Result = dbContext.Database.ExecuteSqlInterpolated($"DELETE FROM Products WHERE ProductID={ProductID}");
             //Console.WriteLine(Result);
             #endregion
+
+            #endregion
+            #region Views
+            //var Result = dbContext.ProductsByCategories.ToList();
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine($"Category Name: {item.CategoryName} - Product Name: {item.ProductName}");
+            //}
             #endregion
         }
     }

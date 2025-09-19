@@ -417,6 +417,20 @@ namespace EntitySession01
 
             #endregion
             #endregion
+            #region Session05
+            #region Views
+            //var Result = dbContext.EmployeeDepartmentView.ToList().FirstOrDefault();
+            //foreach (var item in Result) { 
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Stored Proc
+            //var Result = dbContext.CreateGetStudentsByDepartmentSP .ToList().FirstOrDefault();
+            //foreach (var item in Result) { 
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #endregion
         }
     }
 }

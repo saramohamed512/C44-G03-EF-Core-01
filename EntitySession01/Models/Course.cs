@@ -12,6 +12,6 @@ namespace EntitySession01.Models
         public string Name { get; set; }
 
         //Many to Many RS Student_Course
-        public ICollection<Student> Students { get; set; } 
+        public virtual ICollection<Student> Students { get; set; } 
     }
 }

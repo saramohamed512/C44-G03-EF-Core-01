@@ -31,6 +31,6 @@ namespace EntitySession01.Models
         //[InverseProperty("EmployeeDepartment")]
         [InverseProperty(nameof(Employee.EmployeeDepartment))]
 
-        public ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
+        public  virtual ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
     }
 }

@@ -75,6 +75,10 @@ namespace EntitySession01.Context
             //    );
             #endregion
 
+            #region Handel Views
+            modelBuilder.Entity <EmployeeDepartmentView>.().ToView("EmployeeDepartmentView").HasNoKey();
+            #endregion
+
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> UsersTable { get; set; }
@@ -87,6 +91,7 @@ namespace EntitySession01.Context
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
 
+        public DbSet<EmployeeDepartmentView> EmployeeDepartmentView { get; set; }
 
 
 
